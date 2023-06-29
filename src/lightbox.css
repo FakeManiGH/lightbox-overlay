@@ -1,0 +1,146 @@
+/* 
+Lightbox Overlay v.1.01 | Stylesheet
+Lightbox Overlay "original" script was written by (c) Timo Anjala.
+Lightbox Overlay is free to use in any personal or commercial projects, free of charge.
+Lightbox Overlay script can be modified to fit the needs of person obtaining a copy of the it.
+
+NOTE:   Creator informaiton and version must remain in all copies of the script. Any visual mentioning on website is not required.
+        If orginal script is changed, but parts of it remain in use, mentioning of the original script is required.
+*/
+
+/* Neutralizes browser preset margins and paddings */
+.lightbox h3, .lightbox p, .lightbox a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+
+/* Style for lightbox Overlay */
+.lightbox {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100.1vh;
+    background: #11111180;
+    backdrop-filter: blur(1em);
+    z-index: 9999;
+    overflow: auto;
+}
+
+
+/* Holds the image in the middle of the lighbox Overlay */
+.image-container {
+    position: relative;
+    display: block;
+    height: 82%;
+    margin: auto;
+    padding: 0 15px 0 15px;
+}
+
+
+/* Keeps the image contained and in max size inside image-container */
+.lightbox-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    cursor: zoom-in;
+}
+
+
+/* Text container that shows image title in lightbox (alt-data) */
+.image-data {
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    position: absolute;
+    top: -30px;
+    left: 15px;
+    margin: 0;
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 1px 1px 3px #000000;
+}
+
+
+/* Button to close the lightbox (top right corner) */
+.image-close {
+    position: absolute;
+    top: -30px;
+    right: 17px;
+    margin: 0;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px #000000;
+    cursor: pointer;
+}
+
+.image-close:hover {color: #111; text-decoration: none;}
+
+
+/* Button to move into previous image in lightbox gallery */
+.previous-btn {
+    display: block;
+    position: absolute;
+    bottom: -35px;
+    left: 17px;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 1.75em;
+    transform: rotate(-90deg);
+    font-weight: 800;
+    text-shadow: 1px 1px 3px #000000;
+    cursor: pointer;
+}
+
+.previous-btn:hover {color: #111; text-decoration: none;}
+
+
+/* Button to move into previous image in lightbox gallery */
+.next-btn {
+    display: block;
+    position: absolute;
+    bottom: -35px;
+    right: 17px;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 1.75em;
+    transform: rotate(90deg);
+    font-weight: 800;
+    text-shadow: 1px 1px 3px #000000;
+    cursor: pointer;
+}
+
+.next-btn:hover {color: #111; text-decoration: none;}
+
+/* Container for gallery/slide infromation inside the lightbox */
+.slide-info {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 1px 1px 3px #000000;
+}
+
+@media screen and (max-width: 800px) {
+    .slide-info {font-size: 1.3em; bottom: -25px;}
+    .next-btn {font-size: 1.5em; bottom: -30px;}
+    .previous-btn {font-size: 1.5em; bottom: -30px;}
+    .image-data {font-size: 1.3em; top: -25px;}
+    .image-close {font-size: 1.3em; top: -25px;}
+}
