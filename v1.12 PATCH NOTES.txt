@@ -1,0 +1,33 @@
+Lightbox Overlay (LBO) v1.12 
+by Timo Anjala
+
+
+v1.12 MAJOR UPDATES:
+
+- All buttons have been enhanced (replaced) with new stylish & dynamic SVG-icons.
+	> You may modify button colors and sizes inside the 'lightbox_overlay.css' -file.
+- Image data(alt) and buttons above image are now placed inside flexbox to prevent independent element movement on different screen sizes.
+- Slide information and arrow buttons below the image are placed inside flexbox to prevent independent element movement on different screen sizes.
+- Download button added to the Overlay. You can specify which images can be downloaded from inside LBO.
+    > Allocate download feature for image by adding 'download' -attribute on image element on your document. Download button appears when this image is displayed inside LBO.
+- Shake animation added to LBO gallery. Shake will appear at each end of every LBO gallery, when there is no more images to browse.
+- Fullscreen button added to LBO. Now you can view and browse through all images with arrow-buttons in fullscreen mode.
+- Duplicate images prevented from image browsing.
+    > If there is same image "src" multiple times on same gallery, only first is added to LBO gallery. This prevents errors in browsing.
+
+
+v1.12 MINOR FIXES:
+
+- Info -page is updated to include all the same info found from project web-page.
+- '/' -mark indicating (slide / slide total) is replaced with 'of' text eg. (2 of 4).
+- Hover indications (title) added to all the buttons inside the Lightbox Overlay. 
+- Both files are now named with 'lightbox_overlay' -filename.
+- 5px corner-radius has been removed from the image-element inside Lightbox Overlay.
+
+
+(i)GITHUB:
+
+- README -file updated to include new features.
+	> important to read! Few bugs resolved.
+- v1.12 PATCH NOTES published.
+- New example image uploaded (v1.12).
