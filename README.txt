@@ -20,9 +20,7 @@ Version: 1.12
 
 1. WHAT IS LIGHTBOX OVERLAY?	
 ----------------------------
-Overlay (LBO) is JavaScript “WIDGET" that creates an independent image viewing layer with user-interface on any web-document. 
-LBO helps to create easy to use image galleries with brwosing function, fullscreen view, and image download on any web-document. 
-LBO is fully automated script and very easy to implement to your project. You need only basic understanding of HTML. 
+Overlay (LBO) is JavaScript “WIDGET" that creates an independent image viewing layer with user-interface on any web-document. LBO helps to create easy to use image galleries with brwosing function, fullscreen view, and image download on any web-document. LBO is fully automated script and very easy to implement to your project. You need only basic understanding of HTML. 
 
 
 
