@@ -33,20 +33,19 @@ Version: 1.12
 	2. Place both files on your webserver in htdocs or specific folder where your website files are located. You can also create subfolder.
 	
 	3. Link both files to HTML document, where you wish to use lightbox Overlay for your images:
-	
-		- Add link 'lightbox_overlay.css' file anywhere in <head> section of HTML document. Example: 
+		> Add link 'lightbox_overlay.css' file anywhere in <head> section of HTML document. Example: 
 		  
 			<link rel="stylesheet" href="location/of/lightbox_overlay.css.css">
 		  
-		- Add link to 'lightbox_overlay.js' file to END of <body> section of HTML document. Example:	
+		> Add link to 'lightbox_overlay.js' file to END of <body> section of HTML document. Example:	
 	  	
 			<script src="location/of/lightbox_overlay.js"></script>
 	  	
 	4. To activate lightbox in HTML, simply add 'lightbox-data' attribute on any image element you wish to view in Lightbox Overlay.
 		
-		- This is an example image code (myImages is example gallery name):
+		> This is an example image code (myImages is example gallery name):
 			
-			<img src="location/of/image.jpg" lightbox-data="myImages" alt="description of my image">
+		<img src="location/of/image.jpg" lightbox-data="myImages" alt="description of my image">
 	
 	5. Enjoy The Overlay.
 
