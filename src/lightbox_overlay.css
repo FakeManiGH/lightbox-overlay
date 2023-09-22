@@ -1,0 +1,218 @@
+/* 
+Lightbox Overlay v.1.01 | Stylesheet
+Lightbox Overlay "original" script was written by (c) Timo Anjala.
+Lightbox Overlay is free to use in any personal or commercial projects, free of charge.
+Lightbox Overlay script can be modified to fit the needs of person obtaining a copy of the it.
+
+NOTE:   Creator informaiton and version must remain in all copies of the script. Any visual mentioning on website is not required.
+        If orginal script is changed, but parts of it remain in use, mentioning of the original script is required.
+*/
+
+
+/* Neutralizes browser preset margins and paddings inside lightbox*/
+.lightbox h3, .lightbox p, .lightbox a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+    text-transform: none;
+}
+
+
+/* Style for lightbox Overlay */
+.lightbox {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100.1vh;
+    background: #11111185;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    overflow: auto;
+}
+
+
+/* Holds the image in the middle of the lighbox Overlay */
+.image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    padding: 0 15px 0 15px;
+}
+
+
+/* Keeps the image contained and in max size inside image-container */
+.lightbox-img {
+    width: 100%;
+    height: 88%;
+    margin: 0;
+    object-fit: contain;
+    cursor: zoom-in;
+}
+
+
+/* Flex-container to keep 'image-data' and top buttons in place above the image */
+.info-bar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 5px 0 5px 0;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Text container that shows image title in lightbox (alt-data) */
+.image-data {
+    position: relative;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+/* Flex-container to keep all top buttons together */
+.info-bar-btns {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+}
+
+
+/* Download button class settings */
+.fullscreen-btn {
+    position: relative;
+    display: flex;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.fullscreen-btn:hover {color: #aaf87d; text-decoration: none;}
+
+/* Download button class settings */
+.image-download {
+    position: relative;
+    display: flex;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.image-download:hover {color: #aaf87d; text-decoration: none;}
+
+
+/* Close button class settings*/
+.image-close {
+    position: relative;
+    display: flex;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.image-close:hover {color: #aaf87d; text-decoration: none;}
+
+
+/* Flex-container to keep 'slide-info' and 'previous-btn' & 'next-btn' in place under the lightbox image */
+.slide-bar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0 5px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Button to move into previous image in lightbox gallery */
+.previous-btn {
+    display: flex;
+    position: relative;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.previous-btn:hover {color: #aaf87d; text-decoration: none;}
+
+
+/* Container for gallery/slide infromation inside the lightbox */
+.slide-info {
+    position: relative;
+    color: #FFF;
+    top: -2px;
+    font-family: system-ui, sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+/* Button to move into previous image in lightbox gallery */
+.next-btn {
+    display: flex;
+    position: relative;
+    color: #FFF;
+    font-family: system-ui, sans-serif;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.next-btn:hover {color: #aaf87d; text-decoration: none;}
+
+
+/* Class for shake animation, connected to .js file */
+.end-shake {
+    animation: shake .15s ease-in-out;
+}
+
+
+/* Shake animation to indicate end of image gallery (W3 Schools) */
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+
+/* Media Sceen settings to make minor tweeks in different screen sizes */
+@media screen and (max-width: 800px) {}
+
+@media screen and (max-width: 480px) {}
+
+@media screen and (max-height: 480px) {
+    .image-container {height: 100%;}
+}
