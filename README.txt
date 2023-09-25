@@ -4,7 +4,7 @@
 
 Lightbox Overlay - LBO
 (c) Timo Anjala
-Version: 1.12
+Version: 1.20
 
 
 1. What is Lightbox Overlay (LBO)?
@@ -33,17 +33,17 @@ Overlay (LBO) is JavaScript “WIDGET" that creates an independent image viewing
 
    > Add link 'lightbox_overlay.css' file anywhere in <head> section of HTML document. 
 		  
-   <link rel="stylesheet" href="location/of/lightbox_overlay.css.css">
+     <link rel="stylesheet" href="location/of/lightbox_overlay.css.css">
 		  
    > Add link to 'lightbox_overlay.js' file to END of <body> section of HTML document.
 	  	
-   <script src="location/of/lightbox_overlay.js"></script>
+     <script src="location/of/lightbox_overlay.js"></script>
 	  	
-4. To activate lightbox in HTML, simply add 'lightbox-data' attribute on any image element you wish to view in Lightbox Overlay.
+4. To activate lightbox in HTML, simply add 'data-lbo' attribute on any image element you wish to view in Lightbox Overlay.
 		
    > This is an example image code (myImages is example gallery name):
 			
-   <img src="location/of/image.jpg" lightbox-data="myImages" alt="description of my image">
+     <img src="location/of/image.jpg" data-lbo="myGallery" alt="description of my image (TITLE in LBO)">
 	
 5. Enjoy The Overlay.
 
@@ -51,9 +51,9 @@ Overlay (LBO) is JavaScript “WIDGET" that creates an independent image viewing
 
 3. USING LIGHTBOX OVERLAY	
 -------------------------
-- When image on your HTML document has 'lightbox-data' -attribute, it works as link to open image in Lightbox Overlay.
+- When image on your HTML document has 'data-lbo' -attribute, it works as link to open image in Lightbox Overlay.
 
-- Adding the same 'lightbox-data' attribute value (eg. "myImages") menthioned in setup, allocates Lightbox Overlay gallery.
+- Adding the same 'lightbox-data' attribute value (eg. "myGallery") menthioned in setup, allocates Lightbox Overlay gallery.
   > Script will collect all images with same value and creates browsable gallery.
   > Page can include many galleries with different names, script is dynamic.
 
@@ -72,11 +72,9 @@ Overlay (LBO) is JavaScript “WIDGET" that creates an independent image viewing
 
 4. USING DOWNLOAD FUNCTION	
 --------------------------
-- You can allocate download button for any image you add to Lightbox Overlay. You need to add 'download' attribute to image-element. E.G.
+- You can allocate download button for any image you add to Lightbox Overlay. You need to add 'data-download' attribute to image-element.
 
-<img src="location/of/image.jpg" download lightbox-data="myImages" alt="description of my image">
-<img src="location/of/image.jpg" lightbox-data="myImages" download alt="description of my image">
-<img src="location/of/image.jpg" lightbox-data="myImages" alt="description of my image" download>
+<img src="location/of/image.jpg" data-lbo="myGallery" data-download alt="description of my image">
 
 
 
@@ -84,12 +82,12 @@ Overlay (LBO) is JavaScript “WIDGET" that creates an independent image viewing
 ------------------
 Lightbox Overlay works on following popular browsers:
 
-- Mozilla Firefox
-- Google Chrome
-- Opera
-- Safari
-- Microsoft Edge
-- Samsung Internet (Mobile)
+  - Mozilla Firefox (Web / Mobile)
+  - Google Chrome (Web / Mobile)
+  - Opera
+  - Safari (Web / Mobile)
+  - Microsoft Edge
+  - Samsung Internet (Mobile)
 
 
 
