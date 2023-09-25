@@ -1,4 +1,4 @@
-// Lightbox Overlay (LBO) v.1.12
+// Lightbox Overlay (LBO) v.1.20
 // Original script was written by (c) Timo Anjala.
 // LBO is free to use in any personal or commercial projects, free of charge.
 // LBO script can be modified to fit the needs of person obtaining a copy of the it.
