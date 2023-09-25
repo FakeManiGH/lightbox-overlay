@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!---------- Meta ---------->
+    <!-- Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Timo Anjala">
     <link rel="icon" href="../images/favicon.ico">
     <title>Lightbox Overlay 1.12 | Timo Anjala</title>
-    <!---------- Styles ---------->
+    <!-- Styles -->
     <link rel="stylesheet" href="info.css">
     <link rel="stylesheet" href="../src/lightbox_overlay.css">
 </head>
 <body>
 
-    <!---------- Header ---------->
+    <!-- Header -->
     <header>
         <img src="images/lbo.svg" class="logo" alt="LBO logo">
         <h1 class="title">LIGHTBOX OVERLAY</h1>
         <p class="big-word white spreaded">Version 1.12</p>
         <ul class="header-btns">
-            <button class="github-btn" onclick="window.open('https://github.com/FakeManiGH/lightbox-overlay')"><icon class="ez-github-simple ez-xl"></icon> View Project in GitHub</button>
-            <button class="github-btn" onclick="window.open('https://timoanjala.com/projects/lightbox')"><icon class="ez-github-simple ez-xl"></icon> View Project Website</button>
+            <li><button class="github-btn" onclick="window.open('https://github.com/FakeManiGH/lightbox-overlay','_blank')">View Project in GitHub</button></li>
+            <li><button class="github-btn" onclick="window.open('https://ta-portfolio.fi/projects/lightbox')">View Project Website</button></li>
         </ul>
         <img src="images/scripple-logo.png" alt="Timo Anjala Logo" class="ta-logo">
     </header>
 
     
    
-    <!---------- Main Content ---------->
+    <!-- Main Content -->
     <main>
         
         <nav class="content-list">
@@ -42,10 +42,10 @@
             <a href="#help" class="btn">NEED HELP?</a>
         </nav>
 
-        <section class="main-content">
+        <div class="main-content">
             <hr>
 
-            <!---------- Content: Overview ---------->
+            <!-- Content: Overview -->
             <article id="overview" class="content-article">
                 <h2>OVERVIEW</h2>
 
@@ -54,14 +54,14 @@
                     LBO is fully automated script and very easy to implement to your project. You need only basic understanding of HTML. 
                     This page provides all you need to know about LBO.</p>
                 
-                <p><icon class="ez-info"></icon> Lightbox Overlay is <strong>responsive</strong> and works on almost all display sizes. On mobile devices, image zoom works better on horizontal view.</p>
+                <p>&rightarrow; Lightbox Overlay is <strong>responsive</strong> and works on almost all display sizes. On mobile devices, image zoom works better on horizontal view.</p>
 
-                <p><icon class="ez-info"></icon> Lightbox Overlay is <strong>100% FREE "SOFTWARE"</strong> and is provided "as is" without any warranty. Read more about <a href="#license">License</a>.</p>
+                <p>&rightarrow; Lightbox Overlay is <strong>100% FREE "SOFTWARE"</strong> and is provided "as is" without any warranty. Read more about <a href="#license">License</a>.</p>
             </article>
 
             <hr>
 
-            <!---------- Content: Preview ---------->
+            <!-- Content: Preview -->
             <article id="preview" class="content-article">
                 <h2>PREVIEW</h2>
 
@@ -70,23 +70,23 @@
 
                 <p class="bold-txt upper">Single Image:</p>
 
-                <img src="images/scenery-1.jpg" lightbox-data alt="Fog Over Icy Archipelago">
+                <img src="images/scenery-1.jpg" data-lbo alt="Fog Over Icy Archipelago">
 
                 <p><strong class="upper">Image Gallery</strong> (with download):</p>
 
-                <gallery class="img-gallery">
-                    <img src="images/wildlife-1.jpg" lightbox-data="birds" download alt="Roe Deer Resting on Field">
-                    <img src="images/wildlife-2.jpg" lightbox-data="birds" download alt="Roe Deer in Snowy Field">
-                    <img src="images/wildlife-3.jpg" lightbox-data="birds" download alt="Lizzard on Wooden Pier">
-                    <img src="images/wildlife-4.jpg" lightbox-data="birds" download alt="Fox Starnding on a Hay Bale">
-                </gallery>
+                <div class="img-gallery">
+                    <img src="images/wildlife-1.jpg" data-lbo="wildlife" data-download alt="Roe Deer Resting on Field">
+                    <img src="images/wildlife-2.jpg" data-lbo="wildlife" data-download alt="Roe Deer in Snowy Field">
+                    <img src="images/wildlife-3.jpg" data-lbo="wildlife" data-download alt="Lizzard on Wooden Pier">
+                    <img src="images/wildlife-4.jpg" data-lbo="wildlife" data-download alt="Fox Starnding on a Hay Bale">
+                </div>
 
                 <p><strong>NOTE:</strong> In preview on this info-page, download will open image on browser. When on server, image will download as normal file.</p>
             </article>
 
             <hr>
 
-            <!---------- Content: Setup ---------->
+            <!-- Content: Setup -->
             <article id="setup" class="content-article">
                 <h2>SETUP</h2>
 
@@ -100,7 +100,7 @@
                             <span class="box">&lt;<span class="blue">link</span> rel="<span class="orange">stylesheet</span>" href="<span class="orange">location/of/lightbox-overlay.css</span>"&gt;</span></li>
 
                             <li>JavaScript file needs to be linked at the end (but inside) of <span class="box">&lt;body&gt;</span> section of HTML document. Example:<br>
-                            <span class="box">&lt;<span class="blue">script</span> src="<span class="orange">location/of/lightbox-overlay.js</span>"&gt;&lt;/<span class="blue">script</span>&gt;</li>
+                            <span class="box">&lt;<span class="blue">script</span> src="<span class="orange">location/of/lightbox-overlay.js</span>"&gt;&lt;/<span class="blue">script</span>&gt;</span></li>
                         </ul> 
 
                     </li>
@@ -110,26 +110,26 @@
 
             <hr>
 
-            <!---------- Content: Activation ---------->
+            <!-- Content: Activation -->
             <article id="activation" class="content-article">
                 <h2>ACTIVATION</h2>
                 
                 <ul class="setup-list">
                     <li>To activate Lightbox Overlay script, you need some images on your HTML document. Add image(s).</li>
-                    <li>Lightbox Overlay for single image is activated by adding <span class="box">lightbox-data</span> attribute to your image element. Example:<br><br>
+                    <li>Lightbox Overlay for a <strong>SINGLE IMAGE</strong> is activated by adding <span class="box">data-lbo</span> attribute to an image-element.<br><br>
                         <span class="box">
-                            &lt;<span class="blue">img</span> src="<span class="orange">location/image.jpg</span>" lightbox-data alt="<span class="orange">description</span>"&gt;
+                            &lt;<span class="blue">img</span> src="<span class="orange">location/image.jpg</span>" data-lbo alt="<span class="orange">description</span>"&gt;
                         </span>
                     </li>
-                    <li>To create Lightbox Overlay gallery, you need to give same <span class="box">lightbox-data="value"</span> attribute value to multiple images in your HTML document. Example:<br><br>
+                    <li>To create a <strong>IMAGE GALLERY</strong>, you need to give same <span class="box">data-lbo="value"</span> to multiple images in your HTML document.<br><br>
                         <span class="box">
-                            &lt;<span class="blue">img</span> src="<span class="orange">location/image1.jpg</span>" lightbox-data="<span class="orange">gallery1</span>" alt="<span class="orange">description</span>"&gt;
+                            &lt;<span class="blue">img</span> src="<span class="orange">location/image1.jpg</span>" data-lbo="<span class="orange">gallery1</span>" alt="<span class="orange">description</span>"&gt;
                         </span><br>
                         <span class="box">
-                            &lt;<span class="blue">img</span> src="<span class="orange">location/image2.jpg</span>" lightbox-data="<span class="orange">gallery1</span>" alt="<span class="orange">description</span>"&gt;
+                            &lt;<span class="blue">img</span> src="<span class="orange">location/image2.jpg</span>" data-lbo="<span class="orange">gallery1</span>" alt="<span class="orange">description</span>"&gt;
                         </span><br>
                         <span class="box">
-                            &lt;<span class="blue">img</span> src="<span class="orange">location/image3.jpg</span>" lightbox-data="<span class="orange">gallery1</span>" alt="<span class="orange">description</span>"&gt;
+                            &lt;<span class="blue">img</span> src="<span class="orange">location/image3.jpg</span>" data-lbo="<span class="orange">gallery1</span>" alt="<span class="orange">description</span>"&gt;
                         </span>
                     </li>
                     <li>Enjoy your Lightbox Overlay Gallery(s).</li>
@@ -138,44 +138,38 @@
 
             <hr>
 
-            <!---------- Content: Download ---------->
+            <!-- Content: Download -->
             <article id="download" class="content-article">
                 <h2>DOWNLOAD FUNCTION</h2>
 
-                <p>To setup download function you simply need to add <span class="box">download</span> attribute to image element. Examples:</p>
+                <p>To setup download function, simply add <span class="box">data-download</span> attribute to an image-element.</p>
 
                 <span class="box">
-                    &lt;<span class="blue">img</span> src="<span class="orange">location/image.jpg</span>" lightbox-data alt="<span class="orange">description</span>" download&gt;
-                </span>
-
-                <p>You can add download -attribute anywhere inside image element:</p>
-
-                <span class="box">
-                    &lt;<span class="blue">img</span> src="<span class="orange">location/image.jpg</span>" lightbox-data download alt="<span class="orange">description</span>"&gt;
+                    &lt;<span class="blue">img</span> src="<span class="orange">location/image.jpg</span>" data-lbo alt="<span class="orange">description</span>" data-download&gt;
                 </span>
             </article>
 
             <hr>
 
-            <!---------- Content: User Manual ---------->
+            <!-- Content: User Manual -->
             <article id="user_manual" class="content-article">
                 <h2>USER MANUAL</h2>
 
                 <ul class="disc-list">
                     <li>You can browse image galleries inside Lightbox Overlay by using <span class="box">Next</span> and <span class="box">Previous</span> buttons inside overlay, or 
                         <span class="box">&#8592;</span> and <span class="box">&#8594;</span> arrow buttons on your keyboard. <em>Swipe motion is coming soon for mobile devices.</em></li>
-                    <li>Lightbox Overlay can be closed by using <span class="box">X</span> button inside overlay or by pressing <span class="box">BACKSPACE</span> or <span class="box">ESC</span>
+                    <li>Lightbox Overlay can be closed by using <span class="box">X</span> button inside overlay or by pressing <span class="box">Backspace</span> or <span class="box">ESC</span>
                         key on your keyboard. <em>Swipe motion is coming soon for mobile devices.</em></li>
                     <li>Zoom-in function works on click with mouse or finger. One click will zoom in on picture to 125% size and second click returns the normal size. 
                         Overflow can be scrolled, if image size exceeds device screen size. Sometimes, left side might be out reach of scroll when zoom is activated. This happens if aspect ratio of image is extra wide.</li>
                     <li>When you reach end of image gallery and try to click next image, screen will vibrate to indicate that there is no more images available. Same applies to start of gallery with previous button.</li>
-                    <li>Images inside LBO can be viewed in Fullscreen-mode by pressing <span class="box"><icon class="ez-fullscreen"></icon></span> -button. Image galleries can also be browsed in fullscreen-mode by using arrow keys on keyboard or by swiping on  mobile devices.</li>
+                    <li>Images inside LBO can be viewed in Fullscreen-mode by pressing <span class="box">Fullscreen</span> -button. Image galleries can also be browsed in fullscreen-mode by using arrow keys on keyboard or by swiping on  mobile devices.</li>
                 </ul>
             </article>
 
             <hr>
 
-            <!---------- Content: Browser Support ---------->
+            <!-- Content: Browser Support -->
             <article id="browser_support" class="content-article">
                 <h2>BROWSER SUPPORT</h2>
 
@@ -187,21 +181,21 @@
 
                 <ul class="broser-list">
                     <li><a href="https://www.microsoft.com/en-us/edge" target="_blank">Microsoft Edge</a></li>
-                    <li><a href="https://www.mozilla.org/en-US/firefox" target="_blank">Mozilla Firefox</a></li>
-                    <li><a href="https://www.google.com/intl/en_us/chrome/" target="_blank">Google Chrome</a></li>
+                    <li><a href="https://www.mozilla.org/en-US/firefox" target="_blank">Mozilla Firefox</a> (Web/Mobile)</li>
+                    <li><a href="https://www.google.com/intl/en_us/chrome/" target="_blank">Google Chrome</a> (Web/Mobile)</li>
                     <li><a href="https://www.opera.com/browsers" target="_blank">Opera</a></li>
-                    <li><a href="https://www.apple.com/safari/" target="_blank">Safari</a></li>
+                    <li><a href="https://www.apple.com/safari/" target="_blank">Safari</a> (Web/Mobile)</li>
                     <li><a href="https://www.samsung.com" target="_blank">Samsung Internet</a> (Mobile)</li>
                 </ul>
             </article>
 
             <hr>
 
-            <!---------- Content: License ---------->
+            <!-- Content: License -->
             <article id="license" class="content-article">
                 <h2>LICENSE</h2>
 
-                <p>Lightbox Overlay is licensed under <icon class="ez-file"></icon> <a class="file" href="../LICENSE.txt">The MIT License</a>.</p>
+                <p>Lightbox Overlay is licensed under <a class="file" href="../LICENSE.txt">The MIT License</a>.</p>
 
                 <ul class="disc-list">
                     <li><strong>100% FREE</strong> - Lightbox Overlay script is free to use in personal and commercial work.</li>
@@ -212,7 +206,7 @@
 
             <hr>
 
-            <!---------- Content: Need Help? ---------->
+            <!-- Content: Need Help? -->
             <article id="help" class="content-article">
                 <h2>NEED HELP?</h2>
 
@@ -225,19 +219,17 @@
 
                 <p><strong>! Github Issue reports are not to be used for posting personal support requests</strong></p>
             </article>
-        </section> 
+        </div> 
     </main>
 
 
-    <!---------- Footer ---------->
+    <!-- Footer -->
     <footer>
-        <ul class="footer-menu">
-            <p>© Timo Anjala, 2023</p>
-        </ul>
+        <p>© Timo Anjala, 2023</p>
     </footer>
 
 
-    <!---------- Scripts ---------->
+    <!-- Scripts -->
     <script src="../src/lightbox_overlay.js"></script>
 </body>
 </html>

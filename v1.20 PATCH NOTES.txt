@@ -1,0 +1,27 @@
+Lightbox Overlay (LBO) v1.20 
+by Timo Anjala
+
+
+v1.20 MAJOR UPDATES:
+
+- To comply with all HTML<->BROWSER -rules, "lightbox-data" -attribute that activated LBO for image-elements is replaced with "data-lbo" -attribute.
+  > To create LBO gallery in 1.20 version, [data-lbo="galleryname"] -attribute is now used.
+
+- To comply with all HTML<->BROWSER -rules, download function inside LBO is replaced with "data-download" -attribute.
+  > To allocate download for an image in 1.20 version, add "data-download" attribute on it.
+ 
+
+
+v1.20 MINOR FIXES:
+
+- Info page was updated to version 1.20.
+- 2px padding was added between image and top buttons inside LBO.
+- Some CSS tweaks added for "info-bar" and "slide-info-bar".
+  > -moz-fit-content (for mozilla)
+  > -webkit-user-select: (for Edge & Chrome)
+
+
+(i)GITHUB:
+
+- README.txt was updated.
+- v1.20 PATCH NOTES published.

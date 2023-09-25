@@ -43,6 +43,7 @@ NOTE:   Creator informaiton and version must remain in all copies of the script.
     display: flex;
     flex-direction: column;
     height: 90%;
+    max-height: 100%;
     width: -moz-fit-content;
     width: fit-content;
     margin: auto;
@@ -52,6 +53,7 @@ NOTE:   Creator informaiton and version must remain in all copies of the script.
 
 /* Keeps the image contained and in max size inside image-container */
 .lightbox-img {
+    position: relative;
     width: 100%;
     height: 88%;
     margin: 0;
@@ -94,6 +96,7 @@ NOTE:   Creator informaiton and version must remain in all copies of the script.
     flex-wrap: nowrap;
     gap: 10px;
     align-items: center;
+    padding-bottom: 2px;
 }
 
 
@@ -211,8 +214,4 @@ NOTE:   Creator informaiton and version must remain in all copies of the script.
 /* Media Sceen settings to make minor tweeks in different screen sizes */
 @media screen and (max-width: 800px) {}
 
-@media screen and (max-width: 480px) {}
-
-@media screen and (max-height: 480px) {
-    .image-container {height: 100%;}
-}
+@media screen and (max-height: 480px) {}

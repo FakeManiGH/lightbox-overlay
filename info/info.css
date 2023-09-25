@@ -200,7 +200,7 @@ footer {
 /* ---------- MAIN SECTION CONTENT ---------- */
 
 .content-list {
-    position: sticky;
+    position: relative;
     top: 0px;
     padding: 10px 0 10px 0;
     display: flex;

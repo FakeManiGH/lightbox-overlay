@@ -10,7 +10,7 @@ NOTE:   Creator Informaiton and version must remain in all copies of the script.
 
 
 
-// LIGHTBOX ELEMENTS
+// LIGHTBOX SVG ICONS
 
 // Close SVG icon.
 const closeIcon = 
@@ -46,6 +46,10 @@ const fullscreenIcon =
 <path d="m125,0C55.96,0,0,55.96,0,125s55.96,125,125,125,125-55.96,125-125S194.04,0,125,0Zm80,134.29v70.71s-70.71,0-70.71,0l24.76-24.76-34.04-34.04-34.05,34.05,24.75,24.75H45s0-70.71,0-70.71l24.75,24.75,34.05-34.05-34.04-34.04-24.76,24.76V45h70.71s-24.74,24.74-24.74,24.74l34.04,34.04,34.03-34.03-24.75-24.75h70.71v70.71s-24.75-24.75-24.75-24.75l-34.03,34.03,34.04,34.04,24.74-24.74Z"/>
 </svg>`;
 
+
+
+// LIGHTBOX HTML ELEMENTS
+
 // Creates DIV element on document to work ligthbox gallery overlay.
 const lightBox = document.createElement('div');
 lightBox.className = 'lightbox';
@@ -67,7 +71,8 @@ imageContainer.appendChild(infoBar);
 // Image element which will display the clicked image inside the lightbox.
 var lightboxImg = document.createElement('img');
 lightboxImg.className = 'lightbox-img';
-lightboxImg.setAttribute('lightbox-data', '');
+lightboxImg.setAttribute('data-lbo', '');
+lightboxImg.setAttribute('alt', '');
 imageContainer.appendChild(lightboxImg);
 
 
@@ -82,6 +87,7 @@ const infoBarBtns = document.createElement('div');
 infoBarBtns.className = 'info-bar-btns';
 infoBar.appendChild(infoBarBtns);
 
+
 // Creates fullscreen button on LBO.
 const fullScreen = document.createElement('a');
 fullScreen.className = 'fullscreen-btn';
@@ -89,9 +95,11 @@ fullScreen.innerHTML = fullscreenIcon;
 fullScreen.title = 'View Fullscreen';
 infoBarBtns.appendChild(fullScreen);
 
+
 // btn for image download (download-icon).
 const imageDownload = document.createElement('a');
 imageDownload.className = 'image-download';
+imageDownload.setAttribute('href', '');
 imageDownload.innerHTML = downloadIcon;
 imageDownload.title = 'Download Image';
 infoBarBtns.appendChild(imageDownload);
@@ -134,9 +142,9 @@ nextBtn.title = 'Next Image';
 slideBar.appendChild(nextBtn);
 
 
-// Will change the cursor to pointer when hovering over image containing "lightbox-data" attribute.
+// Will change the cursor to pointer when hovering over image containing "data-lbo" attribute.
 document.querySelectorAll('img').forEach(img => {
-    if (img.hasAttribute('lightbox-data')) {
+    if (img.hasAttribute('data-lbo')) {
         img.style.cursor = 'pointer';
         lightboxImg.style.cursor = 'zoom-in';
     }
@@ -144,17 +152,17 @@ document.querySelectorAll('img').forEach(img => {
 
 
 
-//LIGHTBOX SCRIPT STARTS
+// FUNCTION TO OPEN THE LIGHTBOX OVERLAY
 
-// EventListener to open Lightbox Overlay on 'click' for all the IMG elements on document that contain "lightbox-data" attribute.
-// If many images on document contain same "lightbox-data" attribute value, LBO will create a gallery of all the images with same value.
+// EventListener to open Lightbox Overlay on 'click' for all the IMG elements on document that contain "data-lbo" attribute.
+// If many images on document contain same "data-lbo" attribute value, LBO will create a gallery of all the images with same value.
 document.querySelectorAll('img').forEach(img => {
-    if (img.hasAttribute('lightbox-data')) {
+    if (img.hasAttribute('data-lbo')) {
         img.addEventListener('click', function() {
             lightBox.style.display = 'flex'
             lightboxImg.src = img.getAttributeNode('src').value;
             lightboxImg.alt = img.getAttributeNode('alt').value;
-            lightboxImg.getAttributeNode('lightbox-data').value = img.getAttributeNode('lightbox-data')?.value;
+            lightboxImg.getAttributeNode('data-lbo').value = img.getAttributeNode('data-lbo')?.value;
             imageData.innerHTML = lightboxImg.alt;
             if (img != lightboxImg) {       // prevents info search on click in lightbox (would build up duplicates in gallery array).
                 getSlideInfo();
@@ -164,6 +172,9 @@ document.querySelectorAll('img').forEach(img => {
     }   
 });
     
+
+
+// GET SLIDE INFO FOR LBO GALLERY
         
 // Collects all the image SRC and ALT values from document on an array.
 // Function will print collected information as slide information on Lightbox overlay.
@@ -171,7 +182,7 @@ var imageArray = []; // Creates empty array for images.
 var altArray = []; // Creates empty array for alt-data.
 function getSlideInfo() {
     document.querySelectorAll('img').forEach(img => {
-        if (img.getAttributeNode('lightbox-data')?.value == lightboxImg.getAttributeNode('lightbox-data').value && img.getAttributeNode('lightbox-data').value != '') {
+        if (img.getAttributeNode('data-lbo')?.value == lightboxImg.getAttributeNode('data-lbo').value && img.getAttributeNode('data-lbo').value != '') {
             if (!imageArray.includes(img.getAttributeNode('src').value)) {  // Checks if imageArray already includes same img-"src". Prevents duplicates.
                 imageArray.push(img.getAttributeNode('src').value); // Adds img "src" attributes to imageArray.
                 altArray.push(img.getAttributeNode('alt').value); // Adds img "alt" attributes to altArray.
@@ -180,7 +191,7 @@ function getSlideInfo() {
     });
     var slideTotal = imageArray.length;
     var currentSlide = imageArray.indexOf(lightboxImg.getAttributeNode('src').value); 
-    if (lightboxImg.getAttributeNode('lightbox-data').value == '') { // If there is no lightbox-data value, slide-info and browsing is disabled.
+    if (lightboxImg.getAttributeNode('data-lbo').value == '') { // If there is no data-lbo value, slide-info and browsing is disabled.
         slideInfo.innerHTML = '';
         previousBtn.style.display = 'none';
         nextBtn.style.display = 'none';
@@ -192,13 +203,18 @@ function getSlideInfo() {
 }
 
 
-// Function goes through all images on document, if image has 'download' -attribute and 'src' -attribute matches to the image presented in -
+
+// GET DOWNLOAD INFO
+
+// Function goes through all images on document, if image has 'data-download' -attribute and 'src' -attribute matches to the image presented in -
 // Lightbox Overlay, download button is allocated for that specific image inside Overlay.
 function getDownloadInfo() {
     document.querySelectorAll('img').forEach(img => {
-        if ((img.hasAttribute('download')) && (img.getAttributeNode('src').value == lightboxImg.getAttributeNode('src').value)) {
+        if ((img.hasAttribute('data-download')) && (img.getAttributeNode('src').value == lightboxImg.getAttributeNode('src').value)) {
             imageDownload.style.display = 'flex';
-            lightboxImg.setAttribute('download', '');
+            lightboxImg.setAttribute('data-download', '');
+            imageDownload.href = lightboxImg.getAttributeNode('src').value;
+            imageDownload.setAttribute('download', '');
         } else {
             imageDownload.style.display = 'none';
         }
@@ -206,10 +222,13 @@ function getDownloadInfo() {
 }
 
 
+
+// NEXT IMAGE BUTTON & NEXT IMAGE ARROW KEY
+
 // Function to move on to next picture in lightbox gallery. 
 // Moves to next SRC and ALT index on array and prints the values to lightbox for corresponding image.
 nextBtn.addEventListener('click', function() {
-    lightboxImg?.removeAttribute('download', '');
+    lightboxImg?.removeAttribute('data-download', '');
     currentSlide = imageArray.indexOf(lightboxImg.getAttributeNode('src').value);
     if (currentSlide + 1 < imageArray.length) {
         currentSlide++;
@@ -234,7 +253,7 @@ nextBtn.addEventListener('click', function() {
 // Function to move to next image in gallery, but with 'keydown' event on 'ArrowRight'.
 document.addEventListener('keydown', function(e) {
     if (e.code == 'ArrowRight') {
-    lightboxImg?.removeAttribute('download', '');
+    lightboxImg?.removeAttribute('data-download', '');
     currentSlide = imageArray.indexOf(lightboxImg.getAttributeNode('src').value);
         if (currentSlide + 1 < imageArray.length) {
             currentSlide++;
@@ -257,10 +276,13 @@ document.addEventListener('keydown', function(e) {
 });
 
 
+
+// PREVIOUS IMAGE BUTTON & PREVIOUS IMAGE ARROW KEY
+
 // Function to move on to previous picture in lightbox gallery. 
 // Moves to previous SRC and ALT index on array and prints the values to lightbox for corresponding image.
 previousBtn.addEventListener('click', function() {
-    lightboxImg?.removeAttribute('download', '');
+    lightboxImg?.removeAttribute('data-download', '');
     currentSlide = imageArray.indexOf(lightboxImg.getAttributeNode('src').value);
     if (currentSlide > 0) {
         currentSlide--;
@@ -285,7 +307,7 @@ previousBtn.addEventListener('click', function() {
 // Function to move to previous image in gallery, but with 'keydown' event on 'ArrowLeft'.
 document.addEventListener('keydown', function(e) {
     if (e.code == 'ArrowLeft') {
-        lightboxImg?.removeAttribute('download', ''); 
+        lightboxImg?.removeAttribute('data-download', ''); 
         currentSlide = imageArray.indexOf(lightboxImg.getAttributeNode('src').value);
         if (currentSlide > 0) {
             currentSlide--;
@@ -308,16 +330,19 @@ document.addEventListener('keydown', function(e) {
 });
 
 
+
+// QUICK ZOOM IN TO 125% SIZE
+
 // Click function to zoom in on lightbox image (one click zooms in, secont click back to normal).
 // Hides all the slide information while zoom in function is active.
-// Cursor changes between zoom-in and zoom-out when you hover on image and click to zoom.
+// Cursor changes between zoom-in and zoom-out when you hover on image.
 lightboxImg.addEventListener('click', function() {
     if (lightboxImg.style.scale == '1.25') {
         lightboxImg.style.scale = '1';
         lightboxImg.style.cursor = 'zoom-in';
         infoBar.style.display = 'flex';
         slideBar.style.display = 'flex';
-        if (lightboxImg.getAttributeNode('lightbox-data').value != '') {
+        if (lightboxImg.getAttributeNode('data-lbo').value != '') {
             previousBtn.style.display = 'block';
             nextBtn.style.display = 'block';
         }
@@ -329,25 +354,22 @@ lightboxImg.addEventListener('click', function() {
     }
 });
 
+
+
+// FULLSCREEN BUTTON 
+
 // Click function for 'fullScreen btn' to open Lightbox Image in fullscreen mode. Working depends on browser and device fullscreen support.
 fullScreen.addEventListener('click', function() {
     lightboxImg.requestFullscreen();
 })
 
 
-// 'Click' eventListener for download button inside Lightbox Overlay. If download is allocated for LBO image on document,
-// download button will appear when image is presented inside LBO.
-imageDownload.addEventListener('click', function() {
-    if (lightboxImg.hasAttribute('download')) {
-        imageDownload.setAttribute('href', lightboxImg.getAttributeNode('src').value);
-        imageDownload.setAttribute('download', ''); 
-    } 
-});
 
+// CLOSING THE LIGHTBOX OVERLAY
 
 // EventListener for close button inside the lightbox overlay. Will close Lightbox.
 lightClose.addEventListener('click', function() {
-    lightboxImg?.removeAttribute('download', '');
+    lightboxImg?.removeAttribute('data-download', '');
     lightBox.style.display = 'none';
     lightboxImg.style.transform = 'scale(1)';
     imageArray = [];
@@ -358,7 +380,7 @@ lightClose.addEventListener('click', function() {
 // EventListener for 'BACKSPACE' key while lightbox overlay is open. Will close Lightbox.
 document.addEventListener('keydown', function(e) {
     if (e.code == 'Backspace') {
-        lightboxImg?.removeAttribute('download', '');
+        lightboxImg?.removeAttribute('data-download', '');
         lightBox.style.display = 'none';
         lightboxImg.style.transform = 'scale(1)';
         imageArray = [];
@@ -370,7 +392,7 @@ document.addEventListener('keydown', function(e) {
 // EventListener for 'ESCAPE' key while lightbox overlay is open. Will close Lightbox.
 document.addEventListener('keydown', function(e) {
     if (e.code == 'Escape') {
-        lightboxImg?.removeAttribute('download', '');
+        lightboxImg?.removeAttribute('data-download', '');
         lightBox.style.display = 'none';
         lightboxImg.style.transform = 'scale(1)';
         imageArray = [];
